@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 
 unsigned char is_even(long);
 unsigned char is_odd(long);
@@ -7,6 +8,8 @@ double cube(float);
 long gcd(long, long);
 long lcm(long, long);
 double simple_interest(float, float, float);
+double compound_interest(float, float, float);
+long find_greatest_of_three(long, long, long);
 
 unsigned char is_even(long num)
 {
@@ -61,9 +64,21 @@ double simple_interest(float principle, float interest, float duration)
   return (principle * duration * interest) / 100;
 }
 
+double compound_interest(float principle, float interest, float duration)
+{
+  double total_amount = principle * pow((1 + interest / 100), duration);
+  return total_amount - principle;
+}
+
+long find_greatest_of_three(long num1, long num2, long num3)
+{
+  long greatest_of_two = num1 > num2 ? num1 : num2;
+  return greatest_of_two > num3 ? greatest_of_two : num3;
+}
+
 int main(void)
 {
-  long int num1, num2;
+  long int num1, num2, num3;
   float number, principle, duration, interest;
   printf("Enter a number to check if it is even or not: ");
   scanf("%li", &num1);
@@ -92,4 +107,12 @@ int main(void)
   printf("Enter principle amount, duration and interest to get simple interset: ");
   scanf("%f %f %f", &principle, &interest, &duration);
   printf("The simple interest is %lf\n", simple_interest(principle, interest, duration));
+
+  printf("Enter principle amount, duration and interest to get compound interset: ");
+  scanf("%f %f %f", &principle, &interest, &duration);
+  printf("The simple interest is %lf\n", compound_interest(principle, interest, duration));
+
+  printf("Enter three numbers to find the greatest of them: ");
+  scanf("%li %li %li", &num1, &num2, &num3);
+  printf("Greatest number is %li\n", find_greatest_of_three(num1, num2, num3));
 }
