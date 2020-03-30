@@ -5,6 +5,7 @@ unsigned char is_odd(long);
 double square(float);
 double cube(float);
 long gcd(long, long);
+long lcm(long, long);
 
 unsigned char is_even(long num)
 {
@@ -48,6 +49,11 @@ long gcd(long num1, long num2)
   return gcd;
 }
 
+long lcm(long num1, long num2)
+{
+  long hcf = gcd(num1, num2);
+  return num1 * num2 / hcf;
+}
 int main(void)
 {
   long int num1, num2;
@@ -68,7 +74,11 @@ int main(void)
   scanf("%f", &number);
   printf("Cube of %f is %lf\n", number, cube(number));
 
-  printf("Enter tow numbers seperated by space to find HCf: ");
+  printf("Enter two numbers seperated by space to find HCF: ");
   scanf("%li %li", &num1, &num2);
   printf("The HCF of %li and %li is %li\n", num1, num2, gcd(num1, num2));
+
+  printf("Enter two numbers seperated by space to find LCM: ");
+  scanf("%li %li", &num1, &num2);
+  printf("The LCM of %li and %li is %li\n", num1, num2, lcm(num1, num2));
 }
