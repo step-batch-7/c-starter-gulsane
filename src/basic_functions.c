@@ -1,46 +1,47 @@
 #include <stdio.h>
 
-unsigned char is_even(int);
-unsigned char is_odd(int);
-unsigned long int square(long int);
-long int cube(long int);
+unsigned char is_even(long);
+unsigned char is_odd(long);
+double square(float);
+double cube(float);
 
-unsigned char is_even(int num)
+unsigned char is_even(long num)
 {
   return num % 2 == 0;
 }
 
-unsigned char is_odd(int num)
+unsigned char is_odd(long num)
 {
   return !is_even(num);
 }
 
-unsigned long int square(long int num)
+double square(float num)
 {
   return num * num;
 }
 
-long int cube(long int num)
+double cube(float num)
 {
   return num * square(num);
 }
 
 int main(void)
 {
-  int num;
+  long int num1;
+  float number;
   printf("Enter a number to check if it is even or not: ");
-  scanf("%d", &num);
-  printf("%d is %s number\n", num, is_even(num) ? "an even" : "not an even");
+  scanf("%li", &num1);
+  printf("%li is %s number\n", num1, is_even(num1) ? "an even" : "not an even");
 
   printf("Enter a number to check if it is odd or not: ");
-  scanf("%d", &num);
-  printf("%d is %s number\n", num, is_odd(num) ? "an odd" : "not an odd");
+  scanf("%li", &num1);
+  printf("%li is %s number\n", num1, is_odd(num1) ? "an odd" : "not an odd");
 
   printf("Enter a number to find its square: ");
-  scanf("%d", &num);
-  printf("Square of %d is %lu\n", num, square(num));
+  scanf("%f", &number);
+  printf("Square of %f is %lf\n", number, square(number));
 
   printf("Enter a number to find its cube: ");
-  scanf("%d", &num);
-  printf("Cube of %d is %lu\n", num, cube(num));
+  scanf("%f", &number);
+  printf("Cube of %f is %lf\n", number, cube(number));
 }
