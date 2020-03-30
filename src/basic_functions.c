@@ -6,6 +6,7 @@ double square(float);
 double cube(float);
 long gcd(long, long);
 long lcm(long, long);
+double simple_interest(float, float, float);
 
 unsigned char is_even(long num)
 {
@@ -54,10 +55,16 @@ long lcm(long num1, long num2)
   long hcf = gcd(num1, num2);
   return num1 * num2 / hcf;
 }
+
+double simple_interest(float principle, float interest, float duration)
+{
+  return (principle * duration * interest) / 100;
+}
+
 int main(void)
 {
   long int num1, num2;
-  float number;
+  float number, principle, duration, interest;
   printf("Enter a number to check if it is even or not: ");
   scanf("%li", &num1);
   printf("%li is %s number\n", num1, is_even(num1) ? "an even" : "not an even");
@@ -81,4 +88,8 @@ int main(void)
   printf("Enter two numbers seperated by space to find LCM: ");
   scanf("%li %li", &num1, &num2);
   printf("The LCM of %li and %li is %li\n", num1, num2, lcm(num1, num2));
+
+  printf("Enter principle amount, duration and interest to get simple interset: ");
+  scanf("%f %f %f", &principle, &interest, &duration);
+  printf("The simple interest is %lf\n", simple_interest(principle, interest, duration));
 }
