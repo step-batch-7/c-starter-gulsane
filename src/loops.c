@@ -47,6 +47,11 @@ void print_odd_nums_series(long last_num)
   print_odd_nums_between_two_nums(1, last_num);
 }
 
+void print_even_nums_series(long last_num)
+{
+  print_nth_nums_between_two_nums(2, last_num, 2);
+}
+
 int main(void)
 {
   long number1, number2, number3;
@@ -66,7 +71,11 @@ int main(void)
   scanf("%li %li", &number1, &number2);
   print_odd_nums_between_two_nums(number1, number2);
 
-  printf("Enter a number to get odd series: ");
+  printf("Enter a number to get series of odd numbers: ");
   scanf("%li", &number1);
   print_odd_nums_series(number1);
+
+  printf("Enter a number to get series of even numbers: ");
+  scanf("%li", &number1);
+  print_even_nums_series(number1);
 }
