@@ -5,6 +5,7 @@ void get_fibonacci_series(long);
 void print_every_nth_number(long, long, long);
 unsigned char is_odd(long);
 void print_odd_nums_between_two_nums(long, long);
+void print_odd_nums_series(long);
 
 long double find_factorial(long number)
 {
@@ -41,6 +42,11 @@ void print_odd_nums_between_two_nums(long num1, long num2)
   print_every_nth_number(first_num, num2, 2);
 }
 
+void print_odd_nums_series(long last_num)
+{
+  print_odd_nums_between_two_nums(1, last_num);
+}
+
 int main(void)
 {
   long number1, number2, number3;
@@ -59,4 +65,8 @@ int main(void)
   printf("Enter two numbers to find all odd numbers between them: ");
   scanf("%li %li", &number1, &number2);
   print_odd_nums_between_two_nums(number1, number2);
+
+  printf("Enter a number to get odd series: ");
+  scanf("%li", &number1);
+  print_odd_nums_series(number1);
 }
