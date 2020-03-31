@@ -11,6 +11,7 @@ long get_sum_of_n_numbers(long, long);
 long get_product_of_n_numbers(long, long);
 void print_multiplication_table(long, long);
 long get_sum_of_even_numbers(long, long);
+void print_revrse_odd_series(long);
 
 long double find_factorial(long number)
 {
@@ -97,6 +98,15 @@ long get_sum_of_even_numbers(long num1, long num2)
   return sum;
 }
 
+void print_revrse_odd_series(long num)
+{
+  long last_odd_num = is_odd(num) ? num : num - 1;
+  for (; last_odd_num >= 1; last_odd_num -= 2)
+  {
+    printf("%li\n", last_odd_num);
+  }
+}
+
 int main(void)
 {
   long number1, number2, number3;
@@ -139,4 +149,8 @@ int main(void)
   printf("Enter two numbers to get sum of all even numbers between them: ");
   scanf("%li %li", &number1, &number2);
   printf("Sum of even numbers is %li\n", get_sum_of_even_numbers(number1, number2));
+
+  printf("Enter a number to get reverse odd numbers series: ");
+  scanf("%li", &number1);
+  print_revrse_odd_series(number1);
 }
