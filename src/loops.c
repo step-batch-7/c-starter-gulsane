@@ -6,6 +6,9 @@ void print_nth_nums_between_two_nums(long, long, long);
 unsigned char is_odd(long);
 void print_odd_nums_between_two_nums(long, long);
 void print_odd_nums_series(long);
+void print_even_nums_series(long);
+long get_sum_of_n_numbers(long, long);
+long get_product_of_n_numbers(long, long);
 
 long double find_factorial(long number)
 {
@@ -52,6 +55,26 @@ void print_even_nums_series(long last_num)
   print_nth_nums_between_two_nums(2, last_num, 2);
 }
 
+long get_sum_of_n_numbers(long first_num, long last_num)
+{
+  long sum = 0;
+  for (; first_num <= last_num; first_num++)
+  {
+    sum += first_num;
+  }
+  return sum;
+}
+
+long get_product_of_n_numbers(long first_num, long last_num)
+{
+  long double product = 1;
+  for (; first_num <= last_num; first_num++)
+  {
+    product = product * first_num;
+  }
+  return product;
+}
+
 int main(void)
 {
   long number1, number2, number3;
@@ -78,4 +101,12 @@ int main(void)
   printf("Enter a number to get series of even numbers: ");
   scanf("%li", &number1);
   print_even_nums_series(number1);
+
+  printf("Enter two numbers to find sum of numbers between them: ");
+  scanf("%li %li", &number1, &number2);
+  printf("sum of numbers is %li\n", get_sum_of_n_numbers(number1, number2));
+
+  printf("Enter two numbers to find product of numbers between them: ");
+  scanf("%li %li", &number1, &number2);
+  printf("product of numbers is %li\n", get_product_of_n_numbers(number1, number2));
 }
