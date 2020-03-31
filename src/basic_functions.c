@@ -11,6 +11,8 @@ double simple_interest(float, float, float);
 double compound_interest(float, float, float);
 long find_greatest_of_three(long, long, long);
 float find_average_of_three(long, long, long);
+float fahrenheit_to_centigrade(float);
+float centigrade_to_fahrenheit(float);
 
 unsigned char is_even(long num)
 {
@@ -82,6 +84,16 @@ float find_average_of_three(long num1, long num2, long num3)
   return (num1 + num2 + num3) / 3.0;
 }
 
+float fahrenheit_to_centigrade(float fahrenheit)
+{
+  return (fahrenheit - 32) * (5.0 / 9.0);
+}
+
+float centigrade_to_fahrenheit(float centigrade)
+{
+  return (9.0 / 5.0) * centigrade + 32;
+}
+
 int main(void)
 {
   long int num1, num2, num3;
@@ -125,4 +137,12 @@ int main(void)
   printf("Enter three numbers to find their average: ");
   scanf("%li %li %li", &num1, &num2, &num3);
   printf("Average of numbers is %f\n", find_average_of_three(num1, num2, num3));
+
+  printf("Enter temperature in Fahrenheit to convert in Centigerate: ");
+  scanf("%f", &number);
+  printf("%f Fahrenheit = %f Centigerate\n", number, fahrenheit_to_centigrade(number));
+
+  printf("Enter temperature in Centigerate to convert in Fahrenheit: ");
+  scanf("%f", &number);
+  printf("%f Centigerate = %f Fahrenheit\n", number, centigrade_to_fahrenheit(number));
 }
