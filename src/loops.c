@@ -10,6 +10,7 @@ void print_even_nums_series(long);
 long get_sum_of_n_numbers(long, long);
 long get_product_of_n_numbers(long, long);
 void print_multiplication_table(long, long);
+long get_sum_of_even_numbers(long, long);
 
 long double find_factorial(long number)
 {
@@ -85,6 +86,17 @@ void print_multiplication_table(long number, long last_multiplier)
   }
 }
 
+long get_sum_of_even_numbers(long num1, long num2)
+{
+  long sum = 0;
+  long first_num = num1 % 2 == 0 ? num1 : num1 + 1;
+  for (; first_num <= num2; first_num += 2)
+  {
+    sum += first_num;
+  }
+  return sum;
+}
+
 int main(void)
 {
   long number1, number2, number3;
@@ -123,4 +135,8 @@ int main(void)
   printf("Enter two numbers to get multiplication table: ");
   scanf("%li %li", &number1, &number2);
   print_multiplication_table(number1, number2);
+
+  printf("Enter two numbers to get sum of all even numbers between them: ");
+  scanf("%li %li", &number1, &number2);
+  printf("Sum of even numbers is %li\n", get_sum_of_even_numbers(number1, number2));
 }
