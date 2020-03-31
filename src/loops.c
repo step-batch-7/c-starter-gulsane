@@ -9,6 +9,7 @@ void print_odd_nums_series(long);
 void print_even_nums_series(long);
 long get_sum_of_n_numbers(long, long);
 long get_product_of_n_numbers(long, long);
+void print_multiplication_table(long, long);
 
 long double find_factorial(long number)
 {
@@ -75,6 +76,15 @@ long get_product_of_n_numbers(long first_num, long last_num)
   return product;
 }
 
+void print_multiplication_table(long number, long last_multiplier)
+{
+  for (long multiplier = 1; multiplier <= last_multiplier; multiplier++)
+  {
+    long multiplication = number * multiplier;
+    printf("%li\n", multiplication);
+  }
+}
+
 int main(void)
 {
   long number1, number2, number3;
@@ -109,4 +119,8 @@ int main(void)
   printf("Enter two numbers to find product of numbers between them: ");
   scanf("%li %li", &number1, &number2);
   printf("product of numbers is %li\n", get_product_of_n_numbers(number1, number2));
+
+  printf("Enter two numbers to get multiplication table: ");
+  scanf("%li %li", &number1, &number2);
+  print_multiplication_table(number1, number2);
 }
