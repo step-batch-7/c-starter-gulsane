@@ -10,6 +10,7 @@ long lcm(long, long);
 double simple_interest(float, float, float);
 double compound_interest(float, float, float);
 long find_greatest_of_three(long, long, long);
+float find_average_of_three(long, long, long);
 
 unsigned char is_even(long num)
 {
@@ -76,6 +77,11 @@ long find_greatest_of_three(long num1, long num2, long num3)
   return greatest_of_two > num3 ? greatest_of_two : num3;
 }
 
+float find_average_of_three(long num1, long num2, long num3)
+{
+  return (num1 + num2 + num3) / 3.0;
+}
+
 int main(void)
 {
   long int num1, num2, num3;
@@ -110,9 +116,13 @@ int main(void)
 
   printf("Enter principle amount, duration and interest to get compound interset: ");
   scanf("%f %f %f", &principle, &interest, &duration);
-  printf("The simple interest is %lf\n", compound_interest(principle, interest, duration));
+  printf("The compound interest is %lf\n", compound_interest(principle, interest, duration));
 
   printf("Enter three numbers to find the greatest of them: ");
   scanf("%li %li %li", &num1, &num2, &num3);
   printf("Greatest number is %li\n", find_greatest_of_three(num1, num2, num3));
+
+  printf("Enter three numbers to find their average: ");
+  scanf("%li %li %li", &num1, &num2, &num3);
+  printf("Average of numbers is %f\n", find_average_of_three(num1, num2, num3));
 }
