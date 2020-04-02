@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 long double find_factorial(long);
-void get_fibonacci_series(long);
+void get_fibonacci_series(int *, int);
 void print_nth_nums_between_two_nums(long, long, long);
 unsigned char is_odd(long);
 void print_odd_nums_between_two_nums(long, long);
@@ -18,14 +18,16 @@ long double find_factorial(long number)
   return number ? number * find_factorial(number - 1) : 1;
 }
 
-void get_fibonacci_series(long term)
+void get_fibonacci_series(int *array, int length)
 {
-  long current_term = 0, next_term = 1;
-  for (; term > 0; term--)
+  int current_term = 0;
+  int next_term = 1;
+
+  for (int index = 0; index < length; index++)
   {
     next_term = current_term + next_term;
     current_term = next_term - current_term;
-    printf("%li\n", current_term);
+    array[index] = current_term;
   }
 }
 
@@ -109,14 +111,20 @@ void print_revrse_odd_series(long num)
 
 int main(void)
 {
+  int terms;
   long number1, number2, number3;
   printf("Enter a number to find its factorial: ");
   scanf("%li", &number1);
   printf("factorial of %li is %Lf\n", number1, find_factorial(number1));
 
   printf("Enter a number to get fibonacci series: ");
-  scanf("%li", &number1);
-  get_fibonacci_series(number1);
+  scanf("%d", &terms);
+  int array[terms];
+  get_fibonacci_series(array, terms);
+  for (int index = 0; index < terms; index++)
+  {
+    printf("%d\n", array[index]);
+  }
 
   printf("Enter three num as first num, last num and term to print every nth num: ");
   scanf("%li %li %li", &number1, &number2, &number3);
